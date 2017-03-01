@@ -6,10 +6,10 @@ class ConnectDB
 {
 	
 	private $pdo;
-	private $instancia;
+	private static $instancia;
 	function __construct()
 	{
-		$this->pdo = new PDO(DRIVER.':host='.HOST.';dbname='.DBNAME,USERNAME,PASSWORD);
+		$this->pdo = new PDO(DRIVER.':host='.HOST.';dbname='.DBNAME.';charset='.CHARSET,USERNAME,PASSWORD);
 	}
 	public function getInstance(){
 		if (!isset(self::$instancia)) {
